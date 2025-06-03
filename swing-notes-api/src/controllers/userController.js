@@ -1,3 +1,4 @@
+//  hanterar allt som har med användar­hantering att göra (signup, login).
 const db = require('../utils/db');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');

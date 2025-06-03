@@ -9,7 +9,7 @@ const {
   searchNotes,
 } = require('../controllers/noteController');
 
-// Alla endpoints kräver att man är inloggad
+// Alla endpoints efter den här kräver att man är inloggad
 router.use(authenticateToken);
 
 router.get('/', getNotes);           // GET /api/notes

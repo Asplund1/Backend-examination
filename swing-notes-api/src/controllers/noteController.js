@@ -1,3 +1,4 @@
+//  hanterar allt som har med anteckningar att göra (hämta, skapa, uppdatera, ta bort, söka). 
 const db = require('../utils/db');
 
 // Hämta alla anteckningar för inloggad användare
