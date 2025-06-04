@@ -1,5 +1,5 @@
 //  hanterar allt som har med användar­hantering att göra (signup, login).
-const db = require('../utils/db');
+const db = require('../utils/databas');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
@@ -59,7 +59,7 @@ const login = async (req, res, next) => {
     // Skapa JWT-token
     const payload = { id: user.id, username: user.username };
     const token = jwt.sign(payload, process.env.JWT_SECRET, {
-      expiresIn: process.env.JWT_EXPIRES_IN || '1h',
+      expiresIn: process.env.JWT_EXPIRES_IN || '24h',
     });
 
     res.json({ token });

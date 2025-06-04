@@ -1,5 +1,5 @@
 //  hanterar allt som har med anteckningar att göra (hämta, skapa, uppdatera, ta bort, söka). 
-const db = require('../utils/db');
+const db = require('../utils/databas');
 
 // Hämta alla anteckningar för inloggad användare
 const getNotes = async (req, res, next) => {
