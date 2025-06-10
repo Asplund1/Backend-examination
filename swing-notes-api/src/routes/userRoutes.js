@@ -5,20 +5,6 @@ const { signup, login } = require('../controllers/userController');
 
 /**
  * @swagger
- * /ping:
- *   get:
- *     summary: Test-endpoint för Swagger
- *     tags: [Test]
- *     responses:
- *       200:
- *         description: Pong!
- */
-router.get('/ping', (req, res) => {
-  res.status(200).json({ message: 'pong' });
-});
-
-/**
- * @swagger
  * /api/user/signup:
  *   post:
  *     summary: Skapar ett nytt användarkonto
