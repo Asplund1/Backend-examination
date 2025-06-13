@@ -1,21 +1,25 @@
-//  hanterar allt som har med anteckningar att göra (hämta, skapa, uppdatera, ta bort, söka). 
+//src/controllers/noteController.js
+// Hanterar CRUD- och sök-operationer för anteckningar
 const db = require('../utils/databas');
 
 // Hämta alla anteckningar för inloggad användare
 const getNotes = async (req, res, next) => {
   try {
+    // Hämtar användar-ID från JWT-middleware
     const userId = req.user.id;
+    // Kör parametriserad SQL-fråga
     const result = await db.query(
       'SELECT id, title, text, created_at AS "createdAt", modified_at AS "modifiedAt" FROM notes WHERE user_id = $1 ORDER BY created_at DESC',
       [userId]
     );
+    // Returnerar anteckningar som JSON
     res.json({ notes: result.rows });
   } catch (err) {
     next(err);
   }
 };
 
-// Skapa en ny anteckning
+// POST: Skapa en ny anteckning
 const createNote = async (req, res, next) => {
   try {
     const userId = req.user.id;
@@ -26,6 +30,7 @@ const createNote = async (req, res, next) => {
     if (text && text.length > 300) {
       return res.status(400).json({ error: 'Text får max vara 300 tecken' });
     }
+    // Kör INSERT-fråga och returnerar skapat objekt
     const result = await db.query(
       `INSERT INTO notes (title, text, user_id)
        VALUES ($1, $2, $3)
@@ -60,6 +65,7 @@ const updateNote = async (req, res, next) => {
     if (noteRes.rows[0].user_id !== userId) {
       return res.status(403).json({ error: 'Ingen åtkomst till denna anteckning' });
     }
+    // Uppdatera valda fält med COALESCE för partial update
     const result = await db.query(
       `UPDATE notes
        SET title = COALESCE($1, title),
@@ -98,7 +104,7 @@ const deleteNote = async (req, res, next) => {
   }
 };
 
-// Sök anteckningar på titel (VG-krav)
+// Sök anteckningar på titel
 const searchNotes = async (req, res, next) => {
   try {
     const userId = req.user.id;
@@ -106,7 +112,7 @@ const searchNotes = async (req, res, next) => {
     if (!q) {
       return res.status(400).json({ error: 'Söksträng saknas' });
     }
-    // I SQL: använd ILIKE för case-insensitive sökning i titel
+    //använd ILIKE för case-insensitive sökning i titel
     const result = await db.query(
       `SELECT id, title, text, created_at AS "createdAt", modified_at AS "modifiedAt"
        FROM notes
