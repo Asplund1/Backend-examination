@@ -15,7 +15,6 @@ module.exports = {
         bearerAuth: { type: 'http', scheme: 'bearer', bearerFormat: 'JWT' }
       },
       schemas: {
-        // Här definierar du dina datamodeller
         Note: {
           type: 'object',
           properties: {
@@ -52,7 +51,6 @@ module.exports = {
     },
     security: [ { bearerAuth: [] } ]
   },
-  // APIsökvägarna måste vara relativ projektroten, t.ex.:
   apis: [
     './swing-notes-api/src/routes/*.js',
     './swing-notes-api/src/controllers/*.js'
