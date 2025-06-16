@@ -1,4 +1,3 @@
-//src/controllers/userController.js
 // Hanterar registrering och inloggning av användare
 const db = require('../utils/databas');
 const bcrypt = require('bcryptjs');

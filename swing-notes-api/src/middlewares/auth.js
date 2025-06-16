@@ -1,4 +1,3 @@
-//src/middlewares/auth.js
 // Verifierar JWT-token för skyddade endpoints
 const jwt = require('jsonwebtoken');
 

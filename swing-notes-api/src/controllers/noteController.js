@@ -1,4 +1,3 @@
-//src/controllers/noteController.js
 // Hanterar CRUD- och sök-operationer för anteckningar
 const db = require('../utils/databas');
 
