@@ -1,4 +1,13 @@
 {
+  "name": "backend-examination",
+  "version": "1.0.0",
+  "description": "Swing Notes API med Node, Express, PostgreSQL och JWT",
+  "main": "src/index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node index.js",
+    "dev":   "nodemon index.js"
+  },
   "dependencies": {
     "bcryptjs": "^3.0.2",
     "dotenv": "^16.5.0",
@@ -10,5 +19,15 @@
   },
   "devDependencies": {
     "nodemon": "^3.1.10"
-  }
+  },
+  "author": "Ditt Namn",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Asplund1/Backend-examination.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Asplund1/Backend-examination/issues"
+  },
+  "homepage": "https://github.com/Asplund1/Backend-examination#readme"
 }
