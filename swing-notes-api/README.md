@@ -11,7 +11,7 @@ För att köra projektet lokalt behöver du ha Node.js och PostgreSQL . Börja m
 Miljövariablerna styr koppling mot databas och hur JWT-token signeras. Kopiera .env.example till .env och fyll i dina egna värden för port, DATABASE_URL, JWT_SECRET och eventuellt annan konfiguration. Därefter initialiserar du databasen genom att köra SQL-skriptet database/schema.sql. skriv detta i terminalen: psql $DATABASE_URL -f database/schema.sql
 
 
-När databasen är på plats startar du servern i utvecklingsläge med npm run dev (nodemon). Servern lyssnar som standard på port 4000, och all interaktiv dokumentation finns tillgänglig på http://localhost:4000/api/docs
+När databasen är på plats startar du servern i utvecklingsläge med npm run dev. Servern lyssnar som standard på port 4000, och all interaktiv dokumentation finns tillgänglig på http://localhost:4000/api/docs
 där du med hjälp av Swagger kan testa och inspektera alla endpoints.
 
 Exempel på hur du interagerar med API:t:
