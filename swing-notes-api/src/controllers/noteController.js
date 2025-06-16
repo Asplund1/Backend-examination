@@ -64,7 +64,7 @@ const updateNote = async (req, res, next) => {
     if (noteRes.rows[0].user_id !== userId) {
       return res.status(403).json({ error: 'Ingen åtkomst till denna anteckning' });
     }
-    // Uppdatera valda fält med COALESCE för partial update
+    // Uppdatera valda fält med COALESCE för partial update (COALESCE returnernar första värdet i listan som inte är NULL)
     const result = await db.query(
       `UPDATE notes
        SET title = COALESCE($1, title),
