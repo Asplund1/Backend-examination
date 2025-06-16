@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 function authenticateToken(req, res, next) {
   // Hämtar headern Authorization
   const authHeader = req.headers['authorization'];
-  // Förväntar Bearer <token>
+  // Förväntar Bearer token
   const token = authHeader && authHeader.split(' ')[1]; // plocka ut själva token-delen
   if (!token) return res.status(401).json({ error: 'Token saknas' });
   // Verifierar token med hemlighet
