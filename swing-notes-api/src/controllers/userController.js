@@ -22,7 +22,7 @@ const signup = async (req, res, next) => {
       return res.status(400).json({ error: 'Användare finns redan' });
     }
 
-    // Genererar salt och gör hash av lösenordet
+    // Saltar och hashar lösenordet
     const salt = await bcrypt.genSalt(10);
     const passwordHash = await bcrypt.hash(password, salt);
 

@@ -6,7 +6,7 @@ function authenticateToken(req, res, next) {
   // Hämtar headern Authorization
   const authHeader = req.headers['authorization'];
   // Förväntar Bearer token
-  const token = authHeader && authHeader.split(' ')[1]; // plocka ut själva token-delen
+  const token = authHeader && authHeader.split(' ')[1];
   if (!token) return res.status(401).json({ error: 'Token saknas' });
   // Verifierar token med hemlighet
   jwt.verify(token, process.env.JWT_SECRET, (err, user) => {

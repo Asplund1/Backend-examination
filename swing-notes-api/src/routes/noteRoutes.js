@@ -2,13 +2,7 @@
 const express = require('express');
 const router  = express.Router();
 const authenticateToken = require('../middlewares/auth');
-const {
-  getNotes,
-  createNote,
-  updateNote,
-  deleteNote,
-  searchNotes,
-} = require('../controllers/noteController');
+const {getNotes,createNote,updateNote,deleteNote,searchNotes,} = require('../controllers/noteController');
 
 // Alla endpoints efter den här kräver att man är inloggad
 router.use(authenticateToken);
